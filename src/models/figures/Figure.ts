@@ -27,9 +27,13 @@ export class Figure{
         this.name = FigureNames.FIGURE;
         this.id = Math.random();
     }
-
+ 
     canMove(target: Cell) : boolean{
-        return true;
+        if(target.figure?.color === this.color) return false;
+        if(target.figure?.name === FigureNames.KING) return false;
+        else{
+            return true;
+        } 
     }
 
     moveFigure(target: Cell) {
