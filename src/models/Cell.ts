@@ -21,6 +21,14 @@ export class Cell {
     this.id = Math.random() 
   }
 
+  isEnemy(target: Cell): boolean {
+    if (target.figure) {
+      return this.figure?.color !== target.figure.color;
+    };
+    return false;
+  }
+
+
   isEmpty (): boolean {
     return this.figure === null;
   }
@@ -51,6 +59,10 @@ export class Cell {
       }
     }
 
+    return true;
+  }
+
+  isKingMovementEmpty (target: Cell) : boolean {
     return true;
   }
 
