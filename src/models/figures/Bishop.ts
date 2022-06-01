@@ -18,6 +18,6 @@ export class Bishop extends Figure{
         if(this.cell.isEmptyDiagonal(target)){
             return true;
         }
-        return true;
+        return false;
     }
 }
