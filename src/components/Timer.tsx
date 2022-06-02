@@ -27,6 +27,7 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
   function decrementBlackTimer() {
     setBlackTime(prev => prev - 1)
   }
+
   function decrementWhiteTimer() {
     setWhiteTime(prev => prev - 1)
   }
@@ -42,8 +43,8 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
       <div>
         <button onClick={handleRestart}>Restart game</button>
       </div>
-      <h2>Черные - {blackTime}</h2>
-      <h2>Белые - {whiteTime}</h2>
+      <h2>Черные - {blackTime} {blackTime <= 0 ? "Черные проиграли!" + handleRestart() : ''}</h2>
+      <h2>Белые - {whiteTime} {whiteTime <= 0 ? "Белые проиграли!" + handleRestart() : ''}</h2>
     </div>
   );
 };
