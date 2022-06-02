@@ -1,5 +1,5 @@
 import { Colors } from "./Colors";
-import { Figure } from "./figures/Figure";
+import { Figure, FigureNames } from "./figures/Figure";
 import { Board } from "./Board";
 
 export class Cell {
@@ -58,8 +58,14 @@ export class Cell {
         return false;
       }
     }
-
     return true;
+  }
+
+  isKingUnderAttack (target: Cell) {
+    if (this.board.getCell(this.x,this.y).figure?.name === FigureNames.KING) {
+      return true;
+    }
+    return false;
   }
 
   isKingMovementEmpty (target: Cell) : boolean {
